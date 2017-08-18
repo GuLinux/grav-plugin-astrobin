@@ -1,0 +1,13 @@
+ <figure id="lightbox-{{ image.id() }}" class="astrobin-lightbox {{params['image_lightbox_class']}}">
+    <figcaption>
+        <h4 class="astrobin-lightbox-title">{{ image.title() }}</h4>
+        <div class="astrobin-lightbox-links">
+            <a href="{{ image.url('real') }}" target='_blank'><i class="fa fa-picture-o" aria-hidden="true"></i> Original version</a>
+            <a href="{{ image.astrobinPage() }}" target='_blank'><i class="fa fa-external-link" aria-hidden="true"></i> Astrobin technical details page</a>
+        </div>
+    </figcaption>
+    <img src="{{ image.url(params['format_image_lightbox']) }}">
+    <div class="astrobin-lightbox-description">
+        {{ image.description()|replace({"\n": "<br>"}) }}
+    </div>
+</figure>

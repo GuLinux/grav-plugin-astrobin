@@ -1,0 +1,50 @@
+name: Astrobin
+version: 1.0.0
+description: "This plugin provides astrobin shortcodes for images and galleries"
+icon: picture-o
+author:
+  name: Marco Gulino
+  email: marco@gulinux.net
+  url: http://gulinux.net
+homepage: https://github.com/GuLinux/grav-plugin-astrobin
+keywords: astrobin, media
+bugs: https://github.com/GuLinux/grav-plugin-astrobin/issues
+license: GPLv3
+
+dependencies:
+  - shortcode-core
+  - featherlight
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin Enabled
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+
+    astrobin_api_key:
+      type: text
+      size: medium
+      label: Astrobin API Key
+      validate:
+        required: true
+    astrobin_api_secret:
+      type: text
+      size: medium
+      label: Astrobin API Secret
+      validate:
+        required: true
+    astrobin_cache_duration:
+      type: text
+      size: small
+      label: Astrobin requests cache duration (seconds, 0 to disable caching)
+      validate:
+        type: number
+        min: 0

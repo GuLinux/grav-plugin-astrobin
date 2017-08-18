@@ -1,0 +1,7 @@
+<a href="#" data-featherlight="#lightbox-{{ image.id() }}" class="astrobin-image {{params['image_class']}}">
+    <figure>
+        <img src="{{ image.url(params['format_image']) }}">
+        <figcaption>{{ image.title() }}</figcaption>
+    </figure>
+</a>
+{% include 'partials/astrobin-image-lightbox.html.twig' %}

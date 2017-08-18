@@ -1,0 +1,11 @@
+<div class="astrobin astrobin-collection {{params['collection_class']}}">
+    <{{params['collection-title-tag']}} class="astrobin-collection-title">{{ collection.title() }}</{{params['collection_title_tag']}}>
+    {% if collection.description() %}
+    <{{params['collection-description-tag']}} class="astrobin-collection-description">{{ collection.description() }}</{{params['collection_description_tag']}}>
+    {% endif %}
+    <section data-featherlight-gallery data-featherlight-filter=".astrobin-image">
+    {% for image in collection.images() %}
+        {% include 'partials/astrobin-image.html.twig' %}
+    {% endfor %}
+    </section>
+</div>

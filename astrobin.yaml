@@ -1,0 +1,4 @@
+enabled: true
+astrobin_api_key: ""
+astrobin_api_secret: ""
+astrobin_cache_duration: "7200"

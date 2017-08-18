@@ -1,0 +1,32 @@
+.astrobin-lightbox {
+    display: none;
+    text-align: center;
+}
+
+.astrobin-image {
+    display: inline-block;
+    min-width: 150px;
+    text-align: center;
+    padding: 20px;
+}
+
+.astrobin-image figcaption {
+    font-size: smaller;
+}
+
+.astrobin-collection-title {
+}
+.astrobin-collection-description {
+}
+
+.astrobin-lightbox-links a{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.astrobin-lightbox-title {
+/*     display: inline; */
+}
+
+.featherlight-next:hover span, .featherlight-previous:hover span {
+  text-shadow: 0 0 5px #111111;
+}
