@@ -48,3 +48,12 @@ This is a list for each shortcode.
    * `collection_class`: extra css classes for the main collection html tag.
    * All the parameters for **astrobin-image** are also supported to properly display child images.
    
+Available formats in astrobin API:
+ - duckduckgo
+ - duckduckgo_small
+ - gallery
+ - hd
+ - real
+ - regular
+ - thumb
+
