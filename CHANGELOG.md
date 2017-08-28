@@ -1,4 +1,10 @@
-# v1.0,1
+# v1.0.2
+## 28/08/2017
+
+1. [](#new)
+    * Handle astrobin revision as image parameter.
+
+# v1.0.1
 ## 19/08/2017
 
 1. [](#new)

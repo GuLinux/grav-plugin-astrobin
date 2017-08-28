@@ -61,7 +61,7 @@ class AstrobinAPI
         return NULL;
     }
     
-    private function request($path, $params = [], $add_prefix = true) {
+    public function request($path, $params = [], $add_prefix = true) {
         $prefix = '';
         if($add_prefix)
             $prefix = '/api/v1';

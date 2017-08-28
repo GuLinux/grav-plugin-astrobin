@@ -17,6 +17,7 @@ class AstrobinImageShortcode extends Shortcode
         $this->shortcode->getHandlers()->add('astrobin-image', function(ShortcodeInterface $sc) {
             $content = $sc->getContent();
             $id = $sc->getParameter('id', '');
+            $revision = $sc->getParameter('revision', '');
             $api = new AstrobinAPI();
             $params = array_merge(AstrobinCommons::defaultParams(), $sc->getParameters());
             try {

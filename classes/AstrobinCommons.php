@@ -8,7 +8,8 @@ class AstrobinCommons {
         'format_image' => 'regular',
         'format_image_lightbox' => 'hd',
         'collection_title_tag' => 'h3',
-        'collection_description_tag' => 'h5'
+        'collection_description_tag' => 'h5',
+        'revision' => 'final'
       ];
     }
 }

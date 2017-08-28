@@ -7,10 +7,18 @@ use Grav\Common\Grav;
 class Image
 {
     private $info;
+    private $api;
+    private $revisions;
     
-    public function __construct($info)
+    public function __construct($info, $api)
     {
         $this->info = $info;
+        $this->api = $api;
+        $this->revisions = [$info];
+        foreach($this->info->revisions as $revision) {
+            $revision_obj = $api->request($revision, [], false);
+            array_push($this->revisions, $revision_obj);
+        }
     }
     
     public function id() {
@@ -26,8 +34,26 @@ class Image
         return NULL;
     }
     
-    public function url($format) {
-        return $this->info->{'url_' . $format};
+    public function url($format, $revision_type="final") {
+        $revision_obj = NULL;
+        if($revision_type == "final") {
+            foreach($this->revisions as $revision) {
+                if($revision->is_final) {
+                    $revision_obj = $revision;
+                }
+            }
+        } else if($revision_type == "original") {
+            $revision_obj = $this->revisions[0];
+        } else {
+            $revision_uri = '/' . $this->info->id . '/' . $revision_type . '/';
+            foreach($this->revisions as $revision) {
+                if(! strpos($revision->url_regular, $revision_uri) === false) {
+                    $revision_obj = $revision;
+                    break;
+                }
+            }
+        }
+        return $revision_obj->{'url_' . $format};
     }
     
     public function astrobinPage() {

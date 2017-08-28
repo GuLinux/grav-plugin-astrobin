@@ -1,6 +1,6 @@
 <a href="#" data-featherlight="#lightbox-{{ image.id() }}" class="astrobin-image {{params['image_class']}}">
     <figure>
-        <img src="{{ image.url(params['format_image']) }}">
+        <img src="{{ image.url(params['format_image'], params['revision']) }}">
         <figcaption>{{ image.title() }}</figcaption>
     </figure>
 </a>
