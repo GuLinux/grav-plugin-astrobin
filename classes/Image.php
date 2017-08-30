@@ -34,7 +34,7 @@ class Image
         return NULL;
     }
     
-    public function url($format, $revision_type="final") {
+    public function url($format, $revision_type="final", $animated=false) {
         $revision_obj = NULL;
         if($revision_type == "final") {
             foreach($this->revisions as $revision) {
@@ -53,7 +53,11 @@ class Image
                 }
             }
         }
-        return $revision_obj->{'url_' . $format};
+        $url = $revision_obj->{'url_' . $format};
+        if($animated) {
+            $url .= '?animated';
+        }
+        return $url; 
     }
     
     public function astrobinPage() {

@@ -2,11 +2,11 @@
     <figcaption>
         <h4 class="astrobin-lightbox-title">{{ image.title() }}</h4>
         <div class="astrobin-lightbox-links">
-            <a href="{{ image.url('real', params['revision'] ) }}" target='_blank'><i class="fa fa-picture-o" aria-hidden="true"></i> Original version</a>
+            <a href="{{ image.url('real', params['revision'], params['animated'] ) }}" target='_blank'><i class="fa fa-picture-o" aria-hidden="true"></i> Original version</a>
             <a href="{{ image.astrobinPage() }}" target='_blank'><i class="fa fa-external-link" aria-hidden="true"></i> Astrobin technical details page</a>
         </div>
     </figcaption>
-    <img src="{{ image.url(params['format_image_lightbox'], params['revision']) }}">
+    <img src="{{ image.url(params['format_image_lightbox'], params['revision'], params['animated']) }}">
     <div class="astrobin-lightbox-description">
         {{ image.description()|replace({"\n": "<br>"}) }}
     </div>

@@ -43,6 +43,7 @@ This is a list for each shortcode.
    * `image_class`: extra css classes for the main image html tag.
    * `image_lightbox_class`: extra css classes for the main lightbox html tag.
    * `revision`: image revision to load. It can be "final", "original", or an uppercase letter corresponding to the revision letter of the astrobin technical page (A, B, C, etc).
+   * `animated`: set to true if you want to display gif animation instead of the preview static image.
  * astrobin-collection
    * `collection_title_tag`: HTML tag to use for the collection title.
    * `collection_description_tag`: HTML tag to use for the collection description.
