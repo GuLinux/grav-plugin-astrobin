@@ -47,9 +47,13 @@ class AstrobinAPI
 
     public function image_by_uri($uri, $has_prefix = false)
     {
-        $info = $this->request($uri, [], ! $has_prefix);
-        if($info != NULL)
-            return new Image($info, $this);
+        try {
+            $info = $this->request($uri, [], ! $has_prefix);
+            if($info != NULL)
+                return new Image($info, $this);
+        } catch(RuntimeException $e) {
+            $grav['debugger']->addMessage("Error while getting image by uri " . $uri . ": " . $e);
+        }
         return NULL;
     }
     
