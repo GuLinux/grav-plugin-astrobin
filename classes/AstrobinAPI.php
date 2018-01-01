@@ -13,7 +13,8 @@ use Grav\Common\Cache;
 class AstrobinAPIException extends \Exception {
     public function __construct($obj)
     {
-        parent::__construct("Error during Astrobin API call with code " . $obj['code'] . ": " . $obj['message'], $obj['code'], null);
+        Grav::instance()['debugger']->addMessage('Astrobin API error: ' . $obj->getCode() . ', ' . $obj->getMessage());
+        parent::__construct("Error during Astrobin API call with code " . $obj->getCode(), $obj->getCode(), null);
     }
 }
 
@@ -47,13 +48,9 @@ class AstrobinAPI
 
     public function image_by_uri($uri, $has_prefix = false)
     {
-        try {
-            $info = $this->request($uri, [], ! $has_prefix);
-            if($info != NULL)
-                return new Image($info, $this);
-        } catch(RuntimeException $e) {
-            $grav['debugger']->addMessage("Error while getting image by uri " . $uri . ": " . $e);
-        }
+        $info = $this->request($uri, [], ! $has_prefix);
+        if($info != NULL)
+            return new Image($info, $this);
         return NULL;
     }
     
@@ -84,7 +81,7 @@ class AstrobinAPI
                 $this->cache->save($url, $obj, $this->cache_duration);
             }
             return $obj;
-        } catch(Exception $e) {
+        } catch(\Exception $e) {
             throw new AstrobinAPIException($e);
         }
     }
