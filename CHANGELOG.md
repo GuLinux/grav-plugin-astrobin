@@ -1,3 +1,15 @@
+# v1.0.5
+## 11/10/2022
+
+1. [](#new)
+    * Fix revision tag by using match by label
+
+# v1.0.4
+## 01/01/2018
+
+1. [](#new)
+    * Properly catch exceptions
+
 # v1.0.3
 ## 30/08/2017
 

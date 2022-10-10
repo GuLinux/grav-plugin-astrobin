@@ -12,6 +12,7 @@ class Image
     
     public function __construct($info, $api)
     {
+        $this->grav = Grav::instance();
         $this->info = $info;
         $this->api = $api;
         $this->revisions = [$info];
@@ -45,12 +46,20 @@ class Image
         } else if($revision_type == "original") {
             $revision_obj = $this->revisions[0];
         } else {
+            $this->grav['debugger']->addMessage('Searching for revision: `' . $revision_type . '`');
             $revision_uri = '/' . $this->info->id . '/' . $revision_type . '/';
             foreach($this->revisions as $revision) {
-                if(! strpos($revision->url_regular, $revision_uri) === false) {
+                $this->grav['debugger']->addMessage(' - Revision: ');
+                $this->grav['debugger']->addMessage($revision);
+                if(property_exists($revision, 'label')) {
+                    $this->grav['debugger']->addMessage('Revision label: ' . $revision->label);
                     $revision_obj = $revision;
                     break;
+
                 }
+            }
+            if(is_null($revision_obj)) {
+                $revision_obj = $this->revisions[0];
             }
         }
         $url = $revision_obj->{'url_' . $format};
