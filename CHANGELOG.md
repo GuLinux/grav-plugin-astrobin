@@ -1,13 +1,19 @@
+# v1.0.6
+## 11/10/2022
+
+1. [](#bugfix)
+    * Fix featherlight modal by setting unique ID for featherlight figure using revision as well as image ID.
+
 # v1.0.5
 ## 11/10/2022
 
-1. [](#new)
+1. [](#bugfix)
     * Fix revision tag by using match by label
 
 # v1.0.4
 ## 01/01/2018
 
-1. [](#new)
+1. [](#bugfix)
     * Properly catch exceptions
 
 # v1.0.3
