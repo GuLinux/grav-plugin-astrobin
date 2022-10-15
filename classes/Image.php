@@ -20,6 +20,7 @@ class Image
             $revision_obj = $api->request($revision, [], false);
             array_push($this->revisions, $revision_obj);
         }
+        // dump($this);
     }
     
     public function id() {
@@ -69,8 +70,12 @@ class Image
         return $url; 
     }
     
-    public function astrobinPage() {
-        return 'https://www.astrobin.com/' . $this->info->id;
+    public function astrobinPage($revision) {
+        $url = 'https://www.astrobin.com/' . ($this->info->hash ? $this->info->hash : $this->info->id);
+        if(!is_null($revision)) {
+            $url = $url . "#r" . $revision;
+        }
+        return $url;
     }
     
     public function description() {

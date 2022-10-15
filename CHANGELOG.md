@@ -1,3 +1,13 @@
+# v1.0.7
+## 15/10/2022
+
+1. [](#new)
+    * Use revision for astrobin link URL
+
+2. [](#bugfix)
+    * Fix astrobin link URL
+
+
 # v1.0.6
 ## 11/10/2022
 
