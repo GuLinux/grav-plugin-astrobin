@@ -38,6 +38,7 @@ class Image
     
     public function url($format, $revision_type="final", $animated=false) {
         $revision_obj = NULL;
+        // dump($revision_type);
         if($revision_type == "final") {
             foreach($this->revisions as $revision) {
                 if($revision->is_final) {
@@ -52,7 +53,7 @@ class Image
             foreach($this->revisions as $revision) {
                 $this->grav['debugger']->addMessage(' - Revision: ');
                 $this->grav['debugger']->addMessage($revision);
-                if(property_exists($revision, 'label')) {
+                if(property_exists($revision, 'label') && $revision->label == $revision_type) {
                     $this->grav['debugger']->addMessage('Revision label: ' . $revision->label);
                     $revision_obj = $revision;
                     break;
@@ -63,6 +64,7 @@ class Image
                 $revision_obj = $this->revisions[0];
             }
         }
+        // dump($revision_obj);
         $url = $revision_obj->{'url_' . $format};
         if($animated) {
             $url .= '?animated';

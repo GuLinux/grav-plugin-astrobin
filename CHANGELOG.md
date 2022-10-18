@@ -1,3 +1,10 @@
+# v1.0.8
+## 18/10/2022
+
+1. [](#bugfix)
+    * Fix revision selection algorithm
+
+
 # v1.0.7
 ## 15/10/2022
 
