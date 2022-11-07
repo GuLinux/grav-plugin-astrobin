@@ -1,3 +1,10 @@
+# v1.0.9
+## 07/11/2022
+
+1. [](#bugfix)
+    * Fix null pointer when no revision is marked as final
+
+
 # v1.0.8
 ## 18/10/2022
 

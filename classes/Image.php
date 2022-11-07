@@ -20,6 +20,7 @@ class Image
             $revision_obj = $api->request($revision, [], false);
             array_push($this->revisions, $revision_obj);
         }
+        // $this->grav['log']->info(print_r($this->revisions, true));
         // dump($this);
     }
     
@@ -60,11 +61,11 @@ class Image
 
                 }
             }
-            if(is_null($revision_obj)) {
-                $revision_obj = $this->revisions[0];
-            }
+
         }
-        // dump($revision_obj);
+        if(is_null($revision_obj)) {
+            $revision_obj = $this->revisions[0];
+        }
         $url = $revision_obj->{'url_' . $format};
         if($animated) {
             $url .= '?animated';
